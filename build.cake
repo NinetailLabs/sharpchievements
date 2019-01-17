@@ -8,7 +8,7 @@
 #load "CakeScripts/base/base.msbuild.cake"
 #load "cake.nunit.cake"
 #load "CakeScripts/base/base.gitreleasenotes.cake"
-#load "CakeScripts/base/base.nuget.pack.cake"
+#load "cake.nuget.pack.cake"
 #load "CakeScripts/base/base.nuget.push.cake"
 #load "CakeScripts/base/base.docfx.cake"
 

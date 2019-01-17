@@ -96,7 +96,7 @@ namespace sebingel.sharpchievements.Tests
             am.RegisterAchievement(achievement);
             Achievement achievement2 = new Achievement("anotherObnoxiouslyLongUniqueIdToEnsureWeHaveNoDuplicates2", "Name", "DUMMY", achievementCondition5);
             am.RegisterAchievement(achievement2);
-            Achievement achievement3 = new Achievement("anotherObnoxiouslyLongUniqueIdToEnsureWeHaveNoDuplicates3", "Name", "DUMMY", new List<AchievementCondition> { achievementCondition1, achievementCondition5 });
+            Achievement achievement3 = new Achievement("anotherObnoxiouslyLongUniqueIdToEnsureWeHaveNoDuplicates3", "Name", "DUMMY", new List<IAchievementCondition> { achievementCondition1, achievementCondition5 });
             am.RegisterAchievement(achievement3);
 
             Debug.Assert(!achievement.Unlocked, "!achievement.Unlocked");

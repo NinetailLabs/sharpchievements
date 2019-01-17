@@ -28,7 +28,7 @@ namespace sebingel.sharpchievements.Tests
         /// sets completed variable true, when an AchievementCondition is completed
         /// </summary>
         /// <param name="achievementCondition"></param>
-        private static void AcConditionCompleted(AchievementCondition achievementCondition)
+        private static void AcConditionCompleted(IAchievementCondition achievementCondition)
         {
             completed = true;
         }
@@ -39,7 +39,7 @@ namespace sebingel.sharpchievements.Tests
         private static void CompleteAchievementCondition()
         {
             // create the AchievementCondition and wire event
-            AchievementCondition ac = GetNewAchievementCondition();
+            var ac = GetNewAchievementCondition();
             ac.ConditionCompleted += AcConditionCompleted;
 
             // MakeProgress
@@ -64,7 +64,7 @@ namespace sebingel.sharpchievements.Tests
         /// Creates an AchievementCondition
         /// </summary>
         /// <returns></returns>
-        private static AchievementCondition GetNewAchievementCondition()
+        private static IAchievementCondition GetNewAchievementCondition()
         {
             return new AchievementCondition(uniqueId, achievementConditionKey, countToUnlock);
         }
@@ -75,7 +75,7 @@ namespace sebingel.sharpchievements.Tests
         private static void DoAchievementConditionProgress()
         {
             // Create AchievementCondition and wire events
-            AchievementCondition ac = GetNewAchievementCondition();
+            var ac = GetNewAchievementCondition();
             ac.ProgressChanged += AcProgressChanged;
             // MakeProgress
             ac.MakeProgress();
@@ -92,7 +92,7 @@ namespace sebingel.sharpchievements.Tests
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private static void AcProgressChanged(AchievementCondition sender, AchievementConditionProgressChangedArgs args)
+        private static void AcProgressChanged(IAchievementCondition sender, AchievementConditionProgressChangedArgs args)
         {
             madeProgress = true;
         }
@@ -102,7 +102,7 @@ namespace sebingel.sharpchievements.Tests
         /// </summary>
         private static void CreateAchievementCondition()
         {
-            AchievementCondition ac = GetNewAchievementCondition();
+            var ac = GetNewAchievementCondition();
             Debug.Assert(ac.UniqueId == uniqueId, "ac.UniqueId==uniqueId");
             Debug.Assert(ac.Unlocked == false, "ac.Unlocked==false");
             Debug.Assert(ac.AchievementConditionKey == achievementConditionKey, "ac.AchievementConditionKey==achievementConditionKey");

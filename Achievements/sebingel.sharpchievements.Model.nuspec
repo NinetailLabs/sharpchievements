@@ -2,7 +2,7 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/21.0.07/nuspec.xsd">
     <id>SharpAchievements.Unofficial</id>
-    <version>0.0.0</version>
+    <version>3.0.0</version>
     <authors>sebingel, NinetailLabs</authors>
     <owners>NinetailLabs</owners>
     <title>SharpAchievements (Unofficial fork)</title>
@@ -12,7 +12,7 @@
     <projectUrl>https://github.com/NinetailLabs/sharpchievements</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <copyright>Copyright 2016</copyright>
-    <releaseNotes>ReleaseNotesHere</releaseNotes>
+    <releaseNotes></releaseNotes>
     <tags>c# .net achievements badges unofficial</tags>
 
     <repository type="git" url="https://github.com/NinetailLabs/sharpchievements" commit="GitHashHere" />
@@ -25,8 +25,8 @@
   </metadata>
 
   <files>
-    <file src="./Achievementsbin/Release/sebingel.sharpchievements.dll" target="lib\net472" />
-    <file src="./Achievementsbin/Release/sebingel.sharpchievements.xml" target="lib\net472" />
-    <file src="./Achievementsbin/Release/sebingel.sharpchievements.pdb" target="lib\net472" />
+    <file src="./bin/Release/sebingel.sharpchievements.dll" target="lib\net472" />
+    <file src="./bin/Release/sebingel.sharpchievements.xml" target="lib\net472" />
+    <file src="./bin/Release/sebingel.sharpchievements.pdb" target="lib\net472" />
   </files>
 </package>

@@ -78,7 +78,7 @@ private void FindProjectFiles()
     foreach(var project in projects)
     {
         var projName = GetProjectName(project);
-        if(projName.EndsWith(".Tests"))
+        if(projName.EndsWith("Test"))
         {
             continue;
         }

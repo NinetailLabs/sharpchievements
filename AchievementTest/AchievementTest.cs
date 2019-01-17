@@ -101,14 +101,14 @@ namespace sebingel.sharpchievements.Tests
         private static void ClearAchievementTest()
         {
             // create AchievementConditions
-            AchievementCondition achievementCondition = new AchievementCondition("acUniqueId", "acKey", 5);
-            AchievementCondition achievementCondition2 = new AchievementCondition("acUniqueId2", "acKey", 5);
+            var achievementCondition = new AchievementCondition("acUniqueId", "acKey", 5);
+            var achievementCondition2 = new AchievementCondition("acUniqueId2", "acKey", 5);
             string uniqueId = "aUniqueId";
             string atitel = "aTitel";
             string adescription = "aDescription";
 
             // create Achievement
-            Achievement a = new Achievement(uniqueId, atitel, adescription, new List<AchievementCondition> { achievementCondition, achievementCondition2 });
+            Achievement a = new Achievement(uniqueId, atitel, adescription, new List<IAchievementCondition> { achievementCondition, achievementCondition2 });
             // check of Achievement has both AchievementConditions
             Debug.Assert(a.Conditions.Count() == 2, "a.Conditions.Count == 2");
 
@@ -147,7 +147,7 @@ namespace sebingel.sharpchievements.Tests
 
             #region Constructor 2
 
-            a = new Achievement(uniqueId, atitel, adescription, new List<AchievementCondition> { achievementCondition });
+            a = new Achievement(uniqueId, atitel, adescription, new List<IAchievementCondition> { achievementCondition });
             Debug.Assert(!a.Unlocked, "!a.Unlocked");
             Debug.Assert(a.Conditions.ToList()[0] == achievementCondition, "a.Conditions[0]==achievementCondition");
             Debug.Assert(a.Description == adescription, "a.Description==adescription");
