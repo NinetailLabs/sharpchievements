@@ -26,11 +26,11 @@ namespace sebingel.sharpchievements.View
     /// </summary>
     public partial class AchievementOverviewControl : INotifyPropertyChanged
     {
-        private readonly AchievementManager _achievementList;
+        private AchievementManager _achievementList;
         private Visibility unlockedAchievementsVisibility;
         private Visibility separatorVisibility;
         private Visibility lockedAchievementsVisibility;
-        private readonly ObservableCollection<Achievement> achievementList;
+        private ObservableCollection<Achievement> achievementList;
 
         /// <summary>
         /// A list containing Achievements that are displayed
@@ -95,35 +95,33 @@ namespace sebingel.sharpchievements.View
         /// This construcor purely exists because a Usercontrol needs a parameterless constructor
         /// </summary>
         public AchievementOverviewControl()
-            : this(null, null)
-        { }
-
-        /// <summary>
-        /// A basic overview of a set of Achievements
-        /// </summary>
-        /// <param name="achievements">A set of Achievements to be desplyed</param>
-        /// <param name="achievementListger">The AchievementManager to get all the infos from</param>
-        public AchievementOverviewControl(IEnumerable<Achievement> achievements, AchievementManager achievementList)
         {
-            this._achievementList = achievementList;
             this.InitializeComponent();
+            this._achievementList = AchievementManager.GetInstance();
 
             // initialize the achievementList
             this.achievementList = new ObservableCollection<Achievement>();
 
-            if (achievements == null)
-            {
-                // If the Control is invoked without a list of Achivements to display it will register
-                // to AchievementManager.Instance.AchievementsChanged and will load all registered Achievements
-                achievementList.AchievementRegistered += AchievementRegisteredHandler;
+            // If the Control is invoked without a list of Achivements to display it will register
+            // to AchievementManager.Instance.AchievementsChanged and will load all registered Achievements
+            _achievementList.AchievementRegistered += AchievementRegisteredHandler;
 
-                // Get all already registered Achievements and add them to the list
-                achievements = achievementList.RegisteredAchievements;
-            }
+            // Get all already registered Achievements and add them to the list
+            var achievements = _achievementList.RegisteredAchievements;
+
 
             // Add all Achievements to our List
             foreach (Achievement achievement in achievements)
                 this.AchievementList.Add(achievement);
+        }
+
+        /// <summary>
+        /// Call to initialize the view with an AchievementManager instance
+        /// </summary>
+        /// <param name="achievements">A set of Achievements to be desplyed</param>
+        public void Init(AchievementManager achievementList)
+        {
+            
         }
 
         /// <summary>

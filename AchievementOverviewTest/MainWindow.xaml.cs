@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using sebingel.sharpchievements;
 using sebingel.sharpchievements.View;
 
@@ -14,8 +15,8 @@ namespace AchievementOverviewTest
         public MainWindow()
         {
             InitializeComponent();
+            am = AchievementManager.GetInstance();
 
-            am = new AchievementManager();
 
             AchievementCondition con1 = new AchievementCondition("con1", "con1", 1);
             AchievementCondition con2 = new AchievementCondition("con2", "con2", 2);

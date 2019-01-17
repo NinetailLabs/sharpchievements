@@ -8,23 +8,10 @@ namespace sharpchievements.UnitTest
     public class AchievementManagerTests
     {
         [Test]
-        public void Constructor_CreateInstance_InstanceCanBeCreated()
-        {
-            // Arrange
-            AchievementManager am;
-
-            // Act
-            am = new AchievementManager();
-
-            // Assert
-            Assert.IsNotNull(am);
-        }
-
-        [Test]
         public void RegisterAchievementCondition_GivenANewAchievementCondition_AddsTheAchievementCondition()
         {
             // Arrange
-            AchievementManager am = new AchievementManager();
+            AchievementManager am = AchievementManager.GetInstance();
 
             string key = "key";
             Mock<IAchievementCondition> iAchievmentConditionMock = new Mock<IAchievementCondition>();

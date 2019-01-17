@@ -32,14 +32,27 @@ namespace sebingel.sharpchievements
         private readonly List<IAchievementCondition> _registeredAchievementConditions;
         private List<Achievement> _registeredAchievements;
 
+        private static readonly object _padlock = new object();
+
+        private static AchievementManager _instance;
+
         #endregion
 
         #region - Konstruktoren -
 
+        public static AchievementManager GetInstance()
+        {
+            lock (_padlock)
+            {
+                return _instance ?? (_instance = new AchievementManager());
+            }
+            
+        }
+
         /// <summary>
         ///     List of Achievements
         /// </summary>
-        public AchievementManager()
+        private AchievementManager()
         {
             this._registeredAchievementConditions = new List<IAchievementCondition>();
             this._registeredAchievements = new List<Achievement>();

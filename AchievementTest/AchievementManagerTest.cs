@@ -29,7 +29,7 @@ namespace sebingel.sharpchievements.Tests
             if (File.Exists(saveFilePath))
                 File.Delete(saveFilePath);
 
-            AchievementManager am = new AchievementManager();
+            AchievementManager am = AchievementManager.GetInstance();
             am.AchievementCompleted += AmAchievementCompleted;
             am.AchievementRegistered += AmAchievementRegistered;
 

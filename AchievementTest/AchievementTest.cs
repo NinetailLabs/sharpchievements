@@ -169,7 +169,7 @@ namespace sebingel.sharpchievements.Tests
 
         private static void CheckAchievementUnlockStatusTest()
         {
-            AchievementManager am = new AchievementManager();
+            var am = AchievementManager.GetInstance();
 
             // Create a new AchievementCondition with an obnoxiously long name to minimize the chance of having a duplicate
             AchievementCondition checkAchievementUnlockStatusTestAchievementCondition =
