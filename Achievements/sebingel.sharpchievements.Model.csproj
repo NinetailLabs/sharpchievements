@@ -40,7 +40,8 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>sebingel.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DansCSharpLibrary, Version=5.3.0.0, Culture=neutral, PublicKeyToken=1c2616cf3f9f529d, processorArchitecture=MSIL">
@@ -112,12 +113,12 @@
     <Compile Include="AchievementProgressChangedArgs.cs" />
     <Compile Include="AchievementProgressChangedHandler.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="IAchievementCondition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="sebingel.pfx" />
     <None Include="SemVer.MSBuild.props" />
     <None Include="sharpchievements.nuspec" />
   </ItemGroup>

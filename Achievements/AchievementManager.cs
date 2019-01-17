@@ -29,7 +29,7 @@ namespace sebingel.sharpchievements
     {
         #region - Felder privat -
 
-        private readonly List<AchievementCondition> _registeredAchievementConditions;
+        private readonly List<IAchievementCondition> _registeredAchievementConditions;
         private List<Achievement> _registeredAchievements;
 
         #endregion
@@ -41,7 +41,7 @@ namespace sebingel.sharpchievements
         /// </summary>
         public AchievementManager()
         {
-            this._registeredAchievementConditions = new List<AchievementCondition>();
+            this._registeredAchievementConditions = new List<IAchievementCondition>();
             this._registeredAchievements = new List<Achievement>();
         }
 
@@ -54,7 +54,7 @@ namespace sebingel.sharpchievements
         /// </summary>
         /// <remarks>Only registered AchievementConditions can be tracked!</remarks>
         /// <param name="achievementCondition">The AchievementCondition that should be registered</param>
-        public void RegisterAchievementCondition(AchievementCondition achievementCondition)
+        public void RegisterAchievementCondition(IAchievementCondition achievementCondition)
         {
             if (this._registeredAchievementConditions.All(x => x.UniqueId != achievementCondition.UniqueId))
             {
@@ -266,7 +266,7 @@ namespace sebingel.sharpchievements
         /// </summary>
         private void CleanUpAchievementConditions()
         {
-            var toDelete = new List<AchievementCondition>();
+            var toDelete = new List<IAchievementCondition>();
             foreach (var achievementCondition in this._registeredAchievementConditions)
             {
                 if (this._registeredAchievements.Find(x => x.Conditions.Contains(achievementCondition)) == null)

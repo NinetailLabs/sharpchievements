@@ -36,7 +36,7 @@ namespace sebingel.sharpchievements
         public Achievement(string uniqueId,
             string titel,
             string description,
-            IList<AchievementCondition> conditions)
+            IList<IAchievementCondition> conditions)
         {
             if (conditions == null)
             {
@@ -65,7 +65,7 @@ namespace sebingel.sharpchievements
             this.Description = description;
 
             // Add AchievementConditions
-            var conditionList = new List<AchievementCondition>();
+            var conditionList = new List<IAchievementCondition>();
             foreach (var achievementCondition in conditions)
             {
                 // but only if not already added
@@ -95,8 +95,8 @@ namespace sebingel.sharpchievements
         /// <param name="titel">Applicationwide unique uniqueId of the achievement</param>
         /// <param name="description">Description of the achievement</param>
         /// <param name="condition">Condition that must be met to unlock the achievement</param>
-        public Achievement(string uniqueId, string titel, string description, AchievementCondition condition)
-            : this(uniqueId, titel, description, new List<AchievementCondition> {condition})
+        public Achievement(string uniqueId, string titel, string description, IAchievementCondition condition)
+            : this(uniqueId, titel, description, new List<IAchievementCondition> {condition})
         {
             if (condition == null)
             {
@@ -158,7 +158,7 @@ namespace sebingel.sharpchievements
         ///     This method is tied to the ConditionCompleted events in the AchievementConditions of this Achievement
         /// </summary>
         /// <param name="achievementCondition">AchievementCondition that fired the event</param>
-        private void ConditionCompleted(AchievementCondition achievementCondition)
+        private void ConditionCompleted(IAchievementCondition achievementCondition)
         {
             this.CheckUnlockStatus();
         }
@@ -168,7 +168,7 @@ namespace sebingel.sharpchievements
         /// </summary>
         /// <param name="sender">AchievementCondition thath fired the event</param>
         /// <param name="args">Parameters that are important for this event</param>
-        private void ConditionProgressChanged(AchievementCondition sender, AchievementConditionProgressChangedArgs args)
+        private void ConditionProgressChanged(IAchievementCondition sender, AchievementConditionProgressChangedArgs args)
         {
             if (sender.Unlocked)
             {
@@ -193,7 +193,7 @@ namespace sebingel.sharpchievements
         /// <summary>
         ///     List of conditions which must be met to unlock the achievement
         /// </summary>
-        public IEnumerable<AchievementCondition> Conditions { get; private set; }
+        public IEnumerable<IAchievementCondition> Conditions { get; private set; }
 
         /// <summary>
         ///     The Titel of the Achievement

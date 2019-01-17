@@ -27,7 +27,7 @@ namespace sharpchievements.UnitTest
             AchievementManager am = new AchievementManager();
 
             string key = "key";
-            Mock<AchievementCondition> iAchievmentConditionMock = new Mock<AchievementCondition>();
+            Mock<IAchievementCondition> iAchievmentConditionMock = new Mock<IAchievementCondition>();
             iAchievmentConditionMock.SetupGet(x => x.UniqueId).Returns("uniqueId");
             iAchievmentConditionMock.SetupGet(x => x.AchievementConditionKey).Returns(key);
 
