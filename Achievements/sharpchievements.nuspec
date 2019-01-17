@@ -1,17 +1,32 @@
-<?xml version="1.0"?>
-<package >
-  <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>sebingel</authors>
-    <owners>sebingel</owners>
-    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-    <projectUrl>https://github.com/sebingel/sharpchievements</projectUrl>
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/21.0.07/nuspec.xsd">
+    <id>SharpAchievements.Unofficial</id>
+    <version>0.0.0</version>
+    <authors>sebingel, NinetailLabs</authors>
+    <owners>NinetailLabs</owners>
+    <title>SharpAchievements (Unofficial fork)</title>
+    <description>Unofficial fork of sharpchievements that can be used to manage achievements in a WPF application.</description>
+    <summary>Unofficial fork of sharpchievements that can be used to manage achievements in a WPF application.</summary>
+    <licenseUrl>https://github.com/NinetailLabs/sharpchievements/blob/master/license.txt</licenseUrl>
+    <projectUrl>https://github.com/NinetailLabs/sharpchievements</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>$description$</description>
-    <releaseNotes>Major Upgrade.</releaseNotes>
     <copyright>Copyright 2016</copyright>
-    <tags>c# .net achievements badges</tags>
+    <releaseNotes>ReleaseNotesHere</releaseNotes>
+    <tags>c# .net achievements badges unofficial</tags>
+
+    <repository type="git" url="https://github.com/NinetailLabs/sharpchievements" commit="GitHashHere" />
+
+    <dependencies>
+      <dependency id="DansUtilityLibraries.CSharpLibrary" version="5.3.0" />
+      <dependency id="Humanizer" version="2.5.16" />
+      <dependency id="Newtonsoft.Json" version="12.0.1" />
+    </dependencies>
   </metadata>
+
+  <files>
+    <file src="./Achievementsbin/Release/sebingel.sharpchievements.dll" target="lib\net472" />
+    <file src="./Achievementsbin/Release/sebingel.sharpchievements.xml" target="lib\net472" />
+    <file src="./Achievementsbin/Release/sebingel.sharpchievements.pdb" target="lib\net472" />
+  </files>
 </package>
